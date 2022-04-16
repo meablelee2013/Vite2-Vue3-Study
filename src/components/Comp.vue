@@ -12,7 +12,7 @@ export default {
     return () => (
       <>
         <div>Comp</div>
-        <h1 onClick={onclick}>{couter.value}</h1>
+        <h3 onClick={onclick}>{couter.value}</h3>
       </>
     );
   },
