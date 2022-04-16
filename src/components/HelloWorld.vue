@@ -12,7 +12,9 @@
   </p>
 
   <button type="button" @click="count++">count is: {{ count }}</button>
-  <button @click="onclick">emit</button>
+  <el-button type="primary" @click="onclick">emit</el-button>
+
+  <el-input></el-input>
 </template>
 
 <script setup>
