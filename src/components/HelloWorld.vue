@@ -62,16 +62,10 @@ const onclick = () => {
  ctx.emit('myclick')
 };
 
+fetch('/api/getUser').then(res => res.json()).then(data =>{
+  console.log(data)
+})
 
-onBeforeMount:{
-  console.log('onBeforeMount')
-}
-onMounted:{
-   console.log('onMounted')
-}
-onBeforeUpdate:{
-    console.log('onBeforeUpdate')
-}
 const count = ref(0);
 </script>
 <style scoped>
