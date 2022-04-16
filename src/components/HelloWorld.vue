@@ -50,7 +50,5 @@ fetch("/api/getUser")
 const count = ref(0);
 </script>
 <style scoped>
-a {
-  color: #42b983;
-}
+
 </style>

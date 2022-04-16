@@ -13,7 +13,7 @@ export default defineConfig({
     views: path.resolve(__dirname, "src/views"),
     utils: path.resolve(__dirname, "src/utils"),
     routes: path.resolve(__dirname, "src/routes"),
-    styles: path.resolve(__dirname, "src/styles "), 
+    styles: path.resolve(__dirname, "src/styles"), 
   },
   plugins: [vue(),vuejsx(),viteMockServe({supportTs:false})],
 });
