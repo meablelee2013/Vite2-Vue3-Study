@@ -1,5 +1,3 @@
-
-
 <template>
   <h1>{{ msg }}</h1>
   <Comp />
@@ -19,22 +17,26 @@
   </p>
 
   <button type="button" @click="count++">count is: {{ count }}</button>
- <button @click="onclick">emit</button>
+  <button @click="onclick">emit</button>
 </template>
 
 <script setup>
-import { ref ,defineProps,defineEmits} from "vue";
+import { ref, defineProps, defineEmits ,getCurrentInstance} from "vue";
 //1.直接导入组件
 import Comp from "comps/Comp.vue";
 //2.属性定义
-defineProps({
+const props = defineProps({
   msg: String,
 });
-//3.定义事件
-const emit = defineEmits(['myclick'])
-const onclick = () =>{
-  emit('myclick')
-}
+//3.获取上下文
+const ctx = getCurrentInstance()
+ 
+//4.定义事件
+const emit = defineEmits(["myclick"]);
+const onclick = () => {
+  // emit('myclick')
+ ctx.emit('myclick')
+};
 
 const count = ref(0);
 </script>
