@@ -21,7 +21,22 @@
 </template>
 
 <script setup>
-import { ref, defineProps, defineEmits ,getCurrentInstance} from "vue";
+import {
+    ref,
+    watch,
+    reactive,
+    toRefs,
+    getCurrentInstance,
+    provide,
+    inject,
+    onBeforeMount,// 在组件挂载之前执行的函数
+    onMounted,
+    onBeforeUpdate,// 在组件修改之前执行的函数
+    onUpdated,
+    onBeforeUnmount,// 在组件卸载之前执行的函数
+    onUnmounted,
+    defineProps,
+    nextTick} from "vue";
 //1.直接导入组件
 import Comp from "comps/Comp.vue";
 //2.属性定义
@@ -30,14 +45,33 @@ const props = defineProps({
 });
 //3.获取上下文
 const ctx = getCurrentInstance()
+
+//通过defineExpose 将组件内的方法对外暴露
+defineExpose({
+  someMethod(){
+    console.log('some method from helloworld')
+  }
+})
+
  
 //4.定义事件
 const emit = defineEmits(["myclick"]);
+
 const onclick = () => {
   // emit('myclick')
  ctx.emit('myclick')
 };
 
+
+onBeforeMount:{
+  console.log('onBeforeMount')
+}
+onMounted:{
+   console.log('onMounted')
+}
+onBeforeUpdate:{
+    console.log('onBeforeUpdate')
+}
 const count = ref(0);
 </script>
 <style scoped>
